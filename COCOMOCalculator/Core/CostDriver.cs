@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace COCOMOCalculator.Core
 {
@@ -11,6 +12,11 @@ namespace COCOMOCalculator.Core
         {
             this.Name = Name;
             this.RatingValue = RatingValue;
+        }
+
+        public List<CostDriverRating> GetRatings()
+        {
+            return this.RatingValue.Keys.ToList();
         }
     }
 }

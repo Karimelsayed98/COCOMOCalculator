@@ -1,0 +1,91 @@
+﻿<Window x:Class="COCOMOCalculator.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:COCOMOCalculator.UI"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="COCOMOCalculator" Height="600" Width="900">
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="BlueViolet">
+            <TextBlock Text="COCOMOCalculator" VerticalAlignment="Center" FontFamily="Arial" HorizontalAlignment="Center" FontSize="32" FontWeight="SemiBold" Foreground="White"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock Text="Project Size" Margin="30 0 0 0" VerticalAlignment="Center" FontFamily="Arial" HorizontalAlignment="Left" FontSize="18" FontWeight="SemiBold" Foreground="Black" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBox materialDesign:HintAssist.Hint="Project Size (KLOC)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Width="200" x:Name="projectSizeTextBox" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="Mode" Margin="30 0 0 0" VerticalAlignment="Center" FontFamily="Arial" HorizontalAlignment="Left" FontSize="18" FontWeight="SemiBold" Foreground="Black"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <ComboBox x:Name="selectedMode"
+                materialDesign:HintAssist.Hint="Mode"
+                Width="200"
+                HorizontalAlignment="Left"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="onModeChange" Grid.ColumnSpan="4" Margin="0,6,0,5.4">
+                <ComboBoxItem>
+                    Organic
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Semi-detached
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Embedded
+                </ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0">
+            <ComboBox x:Name="costDrivers"
+                materialDesign:HintAssist.Hint="Cost Driver"
+                Width="200"
+                HorizontalAlignment="Left"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="costDrivers_SelectionChanged" Grid.ColumnSpan="4" Margin="30 0 0 0 ">
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <ComboBox x:Name="costDriverRatings"
+                materialDesign:HintAssist.Hint="Rating"
+                Width="100"
+                HorizontalAlignment="Left"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Grid.ColumnSpan="4" Margin="30 0 0 0 ">
+            </ComboBox>
+            <Button Background="BlueViolet" Foreground="White" Name="AddCostdriver" Content="Add" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="90" Height="26" Click="AddCostdriver_Click" Margin="0 0 30 0"/>
+        </Grid>
+        <Grid Grid.Row="4" Grid.ColumnSpan="2" Margin="30 0 30 0" >
+            <DataGrid ItemsSource="{Binding Path=CostDrivers}" CanUserDeleteRows="True" AutoGenerateColumns="False" Name="CostDriverDg">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Attributes" IsReadOnly="True" Binding="{Binding Path=Attribute}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Ratings" IsReadOnly="True"  Binding="{Binding Path=Rate}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Values" IsReadOnly="True"  Binding="{Binding Path=Value}" Width="*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+            <Button Background="BlueViolet" Foreground="White" Name="CalculateEffort" Content="Effort" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="26" Click="CalculateEffort_Click" Margin="28,12,0,11.6"/>
+            <Button Background="BlueViolet" Foreground="White" Name="CalculateDevTime" Content="DevTime" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Click="CalculateDevTime_Click"/>
+            <Button Background="BlueViolet" Foreground="White" Name="CalculateActualEffort" Content="Actual Effort" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Click="CalculateActualEffort_Click" Margin="0 0 30 0" />
+        </Grid>
+        <Grid Grid.Row="6" Grid.ColumnSpan="2">
+            <Label Background="PaleVioletRed" Foreground="White" Name="effortLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="26" Margin="28,12,0,11.6"/>
+            <Label Background="PaleVioletRed" Foreground="White" Name="devTimeLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Margin="402,12,401.6,11.6" />
+            <Label Background="PaleVioletRed" Foreground="White" Name="actualEffortLabel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="90" Height="26" Margin="0,12,35.6,11.6" />
+        </Grid>
+    </Grid>
+</Window>
