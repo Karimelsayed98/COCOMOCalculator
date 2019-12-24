@@ -49,9 +49,9 @@ namespace COCOMOCalculator.Core
         {
             this.COCOMOCoefficients = new double[][]
             {
-                new double[] { 2.4F, 1.05F, 2.5F, 0.38F },
+                new double[] { 3.2F, 1.05F, 2.5F, 0.38F },
                 new double[] { 3.0F, 1.12F, 2.5F, 0.35F },
-                new double[] { 3.6F, 1.20F, 2.5F, 0.32F },
+                new double[] { 2.8F, 1.20F, 2.5F, 0.32F },
             };
         }
     }

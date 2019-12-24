@@ -79,13 +79,15 @@
         </Grid>
         <Grid Grid.Row="5" Grid.ColumnSpan="2">
             <Button Background="BlueViolet" Foreground="White" Name="CalculateEffort" Content="Effort" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="26" Click="CalculateEffort_Click" Margin="28,12,0,11.6"/>
-            <Button Background="BlueViolet" Foreground="White" Name="CalculateDevTime" Content="DevTime" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Click="CalculateDevTime_Click"/>
-            <Button Background="BlueViolet" Foreground="White" Name="CalculateActualEffort" Content="Actual Effort" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Click="CalculateActualEffort_Click" Margin="0 0 30 0" />
+            <Button Background="BlueViolet" Foreground="White" Name="CalculateDevTime" Content="DevTime" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Click="CalculateDevTime_Click" Margin="258,12,545.6,11.6"/>
+            <Button Background="BlueViolet" Foreground="White" Name="EAF" Content="EAF" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" IsEnabled="False" Margin="490,12,313.6,11.6"/>
+            <Button Background="BlueViolet" Foreground="White" Name="CalculateActualEffort" Content="Actual Effort" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="26" Click="CalculateActualEffort_Click" Margin="0,12,63.6,11.6" />
         </Grid>
         <Grid Grid.Row="6" Grid.ColumnSpan="2">
             <Label Background="PaleVioletRed" Foreground="White" Name="effortLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="26" Margin="28,12,0,11.6"/>
-            <Label Background="PaleVioletRed" Foreground="White" Name="devTimeLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Margin="402,12,401.6,11.6" />
-            <Label Background="PaleVioletRed" Foreground="White" Name="actualEffortLabel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="90" Height="26" Margin="0,12,35.6,11.6" />
+            <Label Background="PaleVioletRed" Foreground="White" Name="devTimeLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Margin="259,12,544.6,11.6" />
+            <Label Background="PaleVioletRed" HorizontalContentAlignment="Center" Foreground="White" Name="EAFLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" Margin="489,10,314.6,13.6" />
+            <Label Background="PaleVioletRed" Foreground="White" Name="actualEffortLabel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="90" Height="26" Margin="0,12,69.6,11.6" />
         </Grid>
     </Grid>
 </Window>

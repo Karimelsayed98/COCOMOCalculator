@@ -24,6 +24,7 @@ namespace COCOMOCalculator.UI
             this.CostDrivers = new ObservableCollection<CostDriverRow>();
             CostDriverDg.ItemsSource = CostDrivers;
             costDrivers.ItemsSource = costDriversList.Select(i => i.Name).ToList();
+            EAFLabel.Content = "1.0";
         }
 
         private void AddCostdriver_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,10 @@ namespace COCOMOCalculator.UI
                     Rate = costDriverRatings.SelectedValue.ToString(),
                     Value = costDriversRegistry.GetCostDriver(costDrivers.SelectedValue.ToString())
                     .RatingValue[(CostDriverRating)Enum.Parse(typeof(CostDriverRating), costDriverRatings.SelectedValue.ToString())]
-                }); 
+                });
+                if (this._calculator != null) { 
+                    EAFLabel.Content = this._calculator.CalculateEAF(CostDrivers.Select(i => i.Value).ToList());
+                }
             }
         }
 
